@@ -48,7 +48,7 @@ npm test
 
 `npm run pack:check` 会执行 `npm pack --dry-run`，用于确认最终发布到 npm 的文件集合是否符合预期。
 
-仓库内的 [release.yml](/Users/adib/Desktop/practices/react-virtual/.github/workflows/release.yml) 统一负责校验和发布：普通 push / PR 会执行测试与构建检查，tag push 或手动触发时会进一步检查 npm 包状态并使用 `secrets.NPM_TOKEN` 发布到 npm。
+仓库内的 [release.yml](/Users/adib/Desktop/practices/react-virtual/.github/workflows/release.yml) 统一负责校验和发布，但现在只支持手动触发。触发时需要选择要执行的分支；如果同时把 `publish` 打开，workflow 会在校验通过后继续检查 npm 包状态并使用 `secrets.NPM_TOKEN` 发布到 npm。
 
 仓库内还提供了一个基础示例源码，位于 [examples/basic.tsx](/Users/adib/Desktop/practices/react-virtual/examples/basic.tsx)，里面同时演示了固定高度、已知可变高度、动态测量型可变高度、sticky 分组头，以及聊天流常见的底部跟随能力。
 
